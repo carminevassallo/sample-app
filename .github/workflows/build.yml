@@ -42,6 +42,16 @@ jobs:
       - name: Build and test
         run: ./gradlew build
 
+      - name: Debug SONAR_TOKEN
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          if [ -z "$SONAR_TOKEN" ]; then
+            echo "SONAR_TOKEN is EMPTY"
+          else
+            echo "SONAR_TOKEN is set, length=${#SONAR_TOKEN}"
+          fi
+
       - name: SonarQube Cloud scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
