@@ -40,6 +40,7 @@ sonar {
     properties {
         property 'sonar.projectKey', 'carminevassallo_sample-app'
         property 'sonar.organization', 'carminevassallo-1'
+        property 'sonar.scanner.skipJreProvisioning', 'true'
         property 'sonar.coverage.jacoco.xmlReportPaths', "${buildDir}/reports/jacoco/test/jacocoTestReport.xml"
     }
 }
